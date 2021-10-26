@@ -1,0 +1,37 @@
+page {
+    background: #F8F8F8;
+    height:100%;
+}
+.btn {
+    width: 706rpx;
+    height: 94rpx;
+    background: #1375D2;
+    border-radius: 8rpx;
+    font-size: 40rpx;
+    font-family: PingFang-SC-Bold, PingFang-SC;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 94rpx;
+    margin: 25rpx auto 0;
+    text-align: center;
+}
+.btn-wap {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    height: 144rpx;
+    line-height: 144rpx;
+    z-index: 2;
+}
+
+
+.no-more {
+    font-size: 24rpx;
+    text-align: center;
+    padding: 20rpx 0;
+}
+.tabBarClass {
+    width: 20rpx;
+    height: 20rpx;
+}

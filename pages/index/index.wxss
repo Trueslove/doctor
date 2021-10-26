@@ -1,0 +1,217 @@
+.home-header {
+  height: 251rpx;
+  background-color: #0087E4;
+  overflow: hidden;
+  padding: 0 29rpx;
+}
+.home-h-title {
+  margin-top: 52rpx;
+  font-size: 36rpx;
+  font-family: Source Han Sans SC;
+  font-weight: 400;
+  line-height: 52rpx;
+  color: #FFFFFF;
+}
+.home-h-input-wap {
+  margin-top: 31rpx;
+  width: 692rpx;
+  height: 87rpx;
+  background: rgba(250, 250, 250, 0.23);
+  border-radius: 14rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.home-h-search {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 32rpx;
+}
+.home-h-input {
+  height: 87rpx;
+  margin-left: 13rpx;
+  height: 38rpx;
+  font-size: 28rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 38rpx;
+  color: #FFFFFF;
+  padding-right: 20rpx;
+  flex: 1;
+}
+.home-type-wap {
+  padding: 25rpx 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.home-type-num {
+  position: absolute;
+  right: 0;
+  top: -11rpx;
+  z-index: 10;
+  padding: 0 9rpx;
+  height: 32rpx;
+  background: #FF4646;
+  border-radius: 16rpx;
+  font-size: 26rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 32rpx;
+  color: #FFFFFF;
+}
+.home-type-item {
+  position: relative;
+  width: 215rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  text-align: center;
+  margin-bottom: 25rpx;
+  font-size: 30rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  color: #CCCCCC;
+}
+.home-active {
+  color: #0087E4;
+} 
+.home-info-wap {
+  background: #FFFFFF;
+  padding: 0 28rpx 14rpx;
+}
+.home-info-user {
+  height: 145rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px dashed #D9D9D9;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.home-user-new {
+  width: 84rpx;
+  height: 86rpx;
+  top: 0;
+  right: 0;
+}
+.home-user-left {
+  width: 92rpx;
+  height: 92rpx;
+  margin: 26rpx 27rpx 0 27rpx;
+  border-radius: 50%;
+}
+.home-user-right {
+  margin-top: 26rpx;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-user-sex-icon {
+  height: 27rpx;
+  width: 27rpx;
+}
+.home-user-100 {
+  width: 100%;
+  font-size: 24rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 33rpx;
+  color: #B9B9B9;
+}
+.home-user-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.home-user-name {
+  font-size: 34rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 500;
+  line-height: 47rpx !important;
+  color: #000000;
+  margin-right: 12rpx;
+}
+.home-user-between {
+  justify-content: space-between;
+}
+.home-info-content {
+  margin-top: 19rpx;
+}
+.home-info-c-item {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.home-info-label {
+  height: 40rpx;
+  font-size: 24rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 38rpx;
+  color: #B9B9B9;
+  margin-right: 10rpx;
+}
+.home-info-value {
+  font-size: 24rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 38rpx;
+  color: #585858;
+}
+.home-info-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top: 14rpx;
+}
+/* 倒计时 */
+.home-info-time {
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 33rpx;
+  color: #BEBEBE;
+  margin-top: 12rpx;
+}
+.home-time-date {
+  width: 36rpx;
+  height: 35rpx;
+  background: #F8F8F8;
+  border-radius: 3rpx;
+  font-size: 24rpx;
+  font-family: Arvo;
+  font-weight: 400;
+  line-height: 30rpx;
+  color: #FF0505;
+  text-align: center;
+  margin: 0 8rpx;
+}
+
+.home-info-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.home-info-value-wj {
+  width: 62rpx;
+  height: 34rpx;
+  background: #FFB60C;
+  border-radius: 3rpx;
+  font-size: 24rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 34rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin-left: 10rpx;
+}
+input::-webkit-input-placeholder { color:#FFFFFF; }

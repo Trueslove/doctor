@@ -1,0 +1,19 @@
+<view class="login">
+    <view class="login-header">
+        <view class="login-h-title">育颜家云上复诊中心</view>
+        <image class="login-h-img" src="/images/loginBj.png"></image>
+    </view>
+    <view class="login-content">
+        <view class="login-info-wap">
+            <input class="login-input" value="{{phone}}"/>
+            <view class="login-input-code">
+                <input class="login-input" value="{{code}}" placeholder="请输入验证码" maxlength="6"/>
+                <button wx:if="{{isShowNum}}" class="btn login-code-btn">{{sec}}秒</button>
+                <button wx:if="{{!isShowNum}}" class="btn login-code-btn" catchtap="getCode" style="width: 200rpx;">获取验证码</button>
+            </view>
+            <button class="btn login-login-btn">登录</button>
+            <view class="login-text">首次登陆医生或医助请使用青苗e看牙的手机号</view>
+        </view>
+
+    </view>
+</view>

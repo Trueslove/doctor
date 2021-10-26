@@ -1,0 +1,49 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/login/login",
+        "pages/user/user",
+        "pages/info/info",
+        "pages/index/detail/detail",
+        "pages/register/register",
+        "pages/index/editForm/editForm",
+        "pages/index/history/history",
+        "pages/index/online/online",
+        "pages/index/onlineDetail/onlineDetail"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "育颜家",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {},
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "任务",
+                "iconPath": "/images/home/rw-off.png",
+                "selectedIconPath": "/images/home/rw-on.png"
+            },
+            {
+                "pagePath": "pages/info/info",
+                "text": "消息",
+                "iconPath": "/images/home/info-off.png",
+                "selectedIconPath": "/images/home/info-on.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "/images/home/user-off.png",
+                "selectedIconPath": "/images/home/user-on.png"
+            }
+        ]
+    }
+}

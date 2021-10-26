@@ -1,0 +1,82 @@
+/* pages/login.wxss */
+.login {
+    height: 100%;
+    overflow: hidden;
+}
+.login-header {
+    width: 100%;
+    height: 518rpx;
+    position: relative;
+}
+.login-h-title {
+    position:absolute;
+    top: 118rpx;
+    left: 50rpx;
+    font-size: 42rpx;
+    font-weight: 500;
+    color: #fff;
+    font-family: Alibaba PuHuiTi;
+}
+.login-h-img {
+    height: 518rpx;
+    width: 100%;
+}
+.login-content {
+    background: linear-gradient(180deg, #65AFFB 0%, #1375D2 100%);
+    position: relative;
+    height: 100%;
+}
+.login-info-wap {
+    width: 552rpx;
+    height: 453rpx;
+    padding: 90rpx 55rpx;
+    background-color: #fff;
+    border-radius: 30rpx;
+    position: absolute;
+    top: -120rpx;
+    left: 45rpx;
+}
+.login-input {
+    padding-bottom: 33rpx;
+    line-height: 39rpx;
+    font-size: 32rpx;
+    border-bottom: 2rpx solid #cecece;
+}
+.login-input::placeholder {
+    font-size: 26rpx;
+    color: #A8A8A8;
+}
+.login-input-code {
+     position: relative;
+     margin-top: 50rpx;
+}
+.login-code-btn {
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    width: 183rpx;
+    position: absolute;
+    right: 0;
+    bottom: 25rpx;
+    font-size: 26rpx;
+    font-weight: 400;
+    z-index: 10;
+}
+.login-login-btn {
+    margin-top: 62rpx;
+    height: 112rpx;
+    line-height: 112rpx;
+    border-radius: 62rpx;
+    width: 100%;
+    font-size: 36rpx;
+    font-weight: 400;
+}
+.login-text {
+    font-size: 24rpx;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    color: #A8A8A8;
+    width: 100%;
+    text-align: center;
+    margin-top: 34rpx;
+}

@@ -1,0 +1,188 @@
+<view class="edit-form">
+    <view class="detail-header">
+        <image class="detail-h-j" src="/images/home/detailBj.png"></image>
+        <view class="detail-h-txt">线上复诊资料</view>
+    </view>
+
+    <!------------ 患者信息 -------------->
+    <view class="edit-info-wap">
+        <view class="edit-info-user">
+            <view class="edit-user-l-wap">
+                <image class="edit-user-left" src="/images/loginBj.png"></image>
+            </view>
+            <view class="edit-user-right">
+                <view class="edit-user-100 edit-user-flex">
+                    <view class="edit-user-name">周国辉</view>
+                    <view class="edit-user-flex-name">
+                        <view class="edit-user-job">医助</view>
+                        <view class="edit-user-job-name">青小淼</view>
+                    </view>
+                </view>
+                <view class="edit-user-100" style="margin-top:6rpx">女 10岁 18828838281</view>
+                <view class="edit-user-100 edit-user-flex edit-user-between">
+                    <view>2019/09/10</view>
+                </view>
+            </view>
+        </view>
+        <view class="edit-info-cell" data-url="/pages/index/history/history" bind:tap="handleToPage">
+            <view class="edit-info-cell-label">查看历史病例</view>
+            <image class="edit-info-cell-arrow" src="/images/home/arrow.png" />
+        </view>
+        <view class="edit-info-cell" data-url="/pages/index/detail/detail" bind:tap="handleToPage">
+            <view class="edit-info-cell-label">查看沟通记录</view>
+            <image class="edit-info-cell-arrow" src="/images/home/arrow.png" />
+        </view>
+        <view class="edit-info-cell">
+            <view class="edit-info-cell-label">图文聊天</view>
+            <view class="edit-info-cell-switch">
+                <view class="edit-switch-label" style="color:#4BD864;" wx:if="{{switch}}">已开启</view>
+                <view class="edit-switch-label" wx:if="{{!switch}}">未开启</view>
+                <switch checked="{{switch}}" bindchange="changeSwitch"/>
+            </view>
+        </view>
+        <!-- 聊天信息 -->
+        <view class="detail-chat-wap">
+            <view class="detail-c-info">
+                <view class="detail-c-i-border"></view>
+                <view class="detail-c-title">线上复诊资料</view>
+            </view>
+            <view class="detail-chat-cell detail-chat-left">
+                <image class="detail-chat-img" src="/images/loginBj.png"></image>
+                <view class="detail-chat-info">
+                    <view class="detail-chat-name">旭光红</view>
+                    <!--------- 聊天信息 ------------>
+                    <view class="detail-chat-info-cell">
+                        照片很清晰，建议还是多鼓励孩子
+                    </view>
+                    <!--------- 照片信息 ------------>
+                    <view class="detail-chat-txt detail-chat-txt-flex">
+                        <view class="detail-chat-txt-left">照片1-牙齿正面照</view>
+                        <view class="detail-chat-txt-r detail-txt-flex-c detail-chat-txt-flex">
+                            <image class="edit-info-cell-hf" src="/images/home/hf.png" />
+                            <view style="margin-left:14rpx">回复</view>
+                        </view>
+                    </view>
+                    <image class="edit-form-info-img" src="/images/loginBj.png" />
+                </view>
+            </view>
+            <view class="detail-chat-cell detail-chat-left">
+                <image class="detail-chat-img" src="/images/loginBj.png"></image>
+                <view class="detail-chat-info">
+                    <view class="detail-chat-name">旭光红</view>
+                    <!--------- 聊天信息 ------------>
+                    <view class="detail-chat-info-cell">
+                        照片很清晰，建议还是多鼓励孩子
+                    </view>
+                    <!--------- 照片信息 ------------>
+                    <view>
+                        <view class="detail-chat-txt detail-chat-txt-flex">
+                            <view class="detail-chat-txt-left">照片1-牙齿正面照</view>
+                            <view class="detail-chat-txt-r detail-txt-flex-c detail-chat-txt-flex">
+                                <image class="edit-info-cell-hf" src="/images/home/hf.png" />
+                                <view style="margin-left:14rpx">回复</view>
+                            </view>
+                        </view>
+                        <image class="edit-form-info-img" src="/images/loginBj.png" />
+                    </view>
+                    <view>
+                        <view class="detail-chat-txt detail-chat-txt-flex">
+                            <view class="detail-chat-txt-left">照片1-牙齿正面照</view>
+                            <view class="detail-chat-txt-r detail-txt-flex-c detail-chat-txt-flex">
+                                <image class="edit-info-cell-hf" src="/images/home/hf.png" />
+                                <view style="margin-left:14rpx">回复</view>
+                            </view>
+                        </view>
+                        <image class="edit-form-info-img" src="/images/loginBj.png" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- --------- 最终意见 ----------- -->
+        <view class="detail-chat-wap">
+            <view class="detail-c-info edit-form-flex-c">
+                <view class="detail-c-i-border"></view>
+                <view class="detail-c-title">最终意见</view>
+            </view>
+            <view class="detail-chat-txt detail-chat-txt-flex" style="position: relative;">
+                <view class="detail-chat-txt-left edit-form-content">暂无录制最终意见</view>
+                <view class="detail-chat-txt-r detail-txt-flex-c detail-chat-txt-flex edit-form-hf">
+                    <image class="edit-info-cell-hf" src="/images/home/hf.png" />
+                    <view style="margin-left:14rpx">回复</view>
+                </view>
+            </view>
+        </view>
+        <!-- --------- 下次复诊预约 ----------- -->
+        <view class="detail-chat-wap">
+            <view class="detail-c-info edit-form-flex-c" style="padding-bottom:15rpx">
+                <view class="detail-c-i-border"></view>
+                <view class="detail-c-title">下次复诊预约</view>
+            </view>
+            <view class="edit-form-cell-wap">
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">复诊时间:</view>
+                    <view class="edit-cell-input" style="position: relative;">
+                        <date-time-picker style="flex:1;z-index:1" value="{{dateTime}}" bind:change="handleChange">{{dateTime}}</date-time-picker>
+                        <view style="color:#006AEF" class="edit-cell-input-yy" bind:change="handleChange">预约</view>
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">复诊项目:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" placeholder-class="input-placeholder" placeholder="请输入" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">复诊方式:</view>
+                    <view class="edit-cell-type-wap">
+                        <view data-index="0" bindtap="handleChangeType" class="edit-cell-type {{activeIndex == 0 ? 'edit-type-active' : ''}}">线上</view>
+                        <view data-index="1" bindtap="handleChangeType" class="edit-cell-type {{activeIndex == 1 ? 'edit-type-active' : ''}}">线下</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- --------- 线上复诊病例 ----------- -->
+        <view class="detail-chat-wap">
+            <view class="detail-c-info edit-form-flex-c" style="padding-bottom:15rpx">
+                <view class="detail-c-i-border"></view>
+                <view class="detail-c-title">线上复诊病例</view>
+            </view>
+            <view class="edit-form-cell-wap">
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">主诉:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" placeholder-class="input-placeholder" placeholder="请输入患者主诉" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">检查:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" placeholder-class="input-placeholder" placeholder="请输入检查情况" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">诊断:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" placeholder-class="input-placeholder" placeholder="请输入诊断内容" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">处置:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" placeholder-class="input-placeholder" placeholder="请输入处置内容" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">医嘱:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" placeholder-class="input-placeholder" placeholder="请输入医嘱内容" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-copy">
+                    复制上次线上复诊病例
+                </view>
+            </view>
+        </view>
+        <view class="btn edit-info-btn">完成复诊</view>
+        <view class="btn edit-info-btn" style="background: #D3D3D3">保存草稿</view>
+    </view>
+</view>

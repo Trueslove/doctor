@@ -1,0 +1,39 @@
+<view class="user">
+    <view class="user-header">
+        <view class="user-h-img"></view>
+        <!-- <image class="user-h-img" src="/images/loginBj.png" alt=""/> -->
+        <view class="user-h-info">
+            <image class="user-h-i-img" src="/images/loginBj.png" alt=""/>
+            <view class="user-h-i-r">
+                <view style="font-size: 50rpx;">赵璇海</view>
+                <view style="font-size: 24rpx;color: #B9B9B9;margin:4rpx 0">门诊主任</view>
+                <view style="font-size: 24rpx;color: #B9B9B9;">15006701461</view>
+            </view>
+        </view>
+    </view>
+    <view class="user-zh-wap">
+        <view class="user-zh-title">账号绑定</view>
+        <view class="user-zh-box">
+            <view class="user-zh-sex">
+                <view class="user-zh-sex user-zh-sex-info">
+                    <image class="user-zh-sex-icon" src="/images/user/nv.png"></image>
+                    <view>赵璇海</view>
+                </view>
+                <view class="user-zh-phone">15006701461</view>
+            </view>
+            <view class="btn user-zh-btn">青苗e看牙</view>
+        </view>
+        <view class="user-zh-info">
+            通过手机号，自动匹配e看牙系统医生账号
+        </view>
+        <view class="user-zh-cell">
+            <view class="user-zh-sex user-zh-sex-info">
+                <image class="user-zh-sex-icon" src="/images/user/tc.png"></image>
+                <view class="">退出登录</view>
+            </view>
+            <image class="user-zh-sex-icon-arrow" src="/images/home/arrow.png"></image>
+        </view>
+    </view>
+    <!-- ---------底部导航 --------- -->
+    <tabbar activeIdx="{{activeIdx}}"></tabbar>
+</view>

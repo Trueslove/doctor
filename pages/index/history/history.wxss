@@ -1,0 +1,197 @@
+/* pages/index/history/history.wxss */
+.history-info-user {
+    height: 145rpx;
+    padding: 29rpx 29rpx 0;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #fff;
+  }
+  .history-user-l-text {
+    font-size: 22rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: #6FBA2C;
+    width: 122rpx;
+    height: 33rpx;
+    background: #EEFFE0;
+    border: 2rpx solid #6FBA2C;
+    border-radius: 3rpx;
+    text-align: center;
+    top: 75rpx;
+    z-index: 100;
+    position: absolute;
+  }
+  .history-left-info {
+    position: relative;
+  }
+  .history-user-new {
+    width: 84rpx;
+    height: 86rpx;
+    top: 0;
+    right: 0;
+  }
+  .history-user-left {
+    width: 92rpx;
+    height: 92rpx;
+    margin: 0 27rpx 0 18rpx;
+    border-radius: 50%;
+  }
+  .history-user-right {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -10rpx;
+  }
+  .history-user-sex-icon {
+    height: 27rpx;
+    width: 27rpx;
+  }
+  .history-user-100 {
+    width: 100%;
+    font-size: 24rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: #B9B9B9;
+    line-height: 20rpx;
+  }
+  .history-user-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 0;
+  }
+  .history-user-name {
+    font-size: 34rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 500;
+    line-height: 47rpx !important;
+    color: #000000;
+    margin-right: 12rpx;
+  }
+  .history-user-between {
+    justify-content: space-between;
+  }
+
+
+  .history-content {
+      padding: 13rpx 28rpx;
+  }
+  .history-title {
+    font-size: 32rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 500;
+    color: #000000;
+    margin: 32rpx 0;
+  }
+  .history-item-wap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24rpx;
+  }
+  .history-item-l {
+      width: 166rpx;
+      height: 96rpx;
+      border: 2rpx solid #1375D2;
+    opacity: 1;
+    border-radius: 4rpx;
+    text-align: center;
+    font-size: 24rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: #FFFFFF;
+    position: relative;
+  }
+  .history-i-time1 {
+    line-height: 54rpx;
+    background-color: #1375D2;
+  }
+  .history-i-time2 {
+    line-height: 42rpx;
+    color: #1375D2;
+  }
+
+  .history-item-r {
+      flex: 1;
+      margin-left: 29rpx;
+      padding: 24rpx;
+      background-color: #FFFFFF;
+  }
+  .history-item-r-t {
+    font-size: 28rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 500;
+    line-height: 38rpx;
+    color: #000000;
+    margin-bottom: 15rpx;
+  }
+  .history-i-r-cell {
+      display: flex;
+    font-size: 24rpx;
+    justify-content: flex-start;
+      font-family: Alibaba PuHuiTi;
+        font-weight: 400;
+        line-height: 40rpx;
+        color: #585858;
+  }
+  .history-cell-label {
+    color: #B9B9B9;
+    margin-right: 10rpx;
+  }
+  .history-cell-value {
+      width: 230rpx;
+      white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+  }
+  .history-i-btn {
+    width: 100%;
+    height: 71rpx;
+    line-height: 71rpx;
+    background: #1375D2;
+    border-radius: 8rpx;
+    font-size: 23rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+  .history-item-l::after {
+    content: "";
+    position: absolute;
+    width: 6rpx;
+    height: 250rpx;
+    background: #E1E1E1;
+    top: 98rpx;
+    z-index: 0;
+  }
+  .history-item-l-x::after {
+    content: "";
+    position: absolute;
+    width: 6rpx;
+    height: 160rpx;
+    background: #E1E1E1;
+    top: 98rpx;
+    z-index: 0;
+  }
+  .history-item-l:last-child::after {
+    content: "";
+    height: 0;
+  }
+
+  .history-item-r-flex {
+      display: flex;
+      justify-content: space-between;
+  }
+  .history-item-r-x {
+    width: 62rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    background: #FFB60C;
+    border-radius: 3rpx;
+    font-size: 24rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    line-height: 33rpx;
+    color: #FFFFFF;
+    text-align: center;
+  }

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabbar": "/components/navBar/navBar"
+  },
+  "navigationBarTitleText": "用户管理"
+}

@@ -1,0 +1,84 @@
+<view class="home">
+    <!------------ 头部搜索 -------------->
+    <view class="home-header">
+        <view class="home-h-title">
+            任务列表
+        </view>
+        <view class="home-h-input-wap">
+            <image class="home-h-search" src="/images/home/search.png"></image>
+            <input class="home-h-input" placeholder-class="home-h-input" placeholder="搜索患者姓名" type="text"/>
+        </view>
+    </view>
+    <!------------ tab栏 -------------->
+    <view class="home-type-wap">
+        <view wx:for="{{typeItem}}" class="home-type-item {{index === activeIndex ? 'home-active' : ''}}" wx:key="index" data-index="{{index}}" bindtap="handleChangeType" data-item="item">
+            <view class="home-type-label">{{item.label}}</view>
+            <view class="home-type-num">{{item.num}}</view>
+        </view>
+    </view>
+    <!------------ 患者信息 -------------->
+    <view class="home-info-wap" bindtap="handleToPageDetail">
+        <view class="home-info-user">
+            <image class="home-user-left" src="/images/loginBj.png"></image>
+            <view class="home-user-right">
+                <view class="home-user-100 home-user-flex">
+                    <view class="home-user-name">周国辉</view>
+                    <image class="home-user-sex-icon" src="/images/user/nan.png"></image>
+                </view>
+                <view class="home-user-100" style="margin-top:6rpx">10岁 18828838281</view>
+                <view class="home-user-100 home-user-flex home-user-between">
+                    <view>2019/09/10</view>
+                    <view>医助：青小淼</view>
+                </view>
+            </view>
+            <image class="home-user-new" src="/images/home/new.png"></image>
+        </view>
+        <view class="home-info-content">
+            <view class="home-info-c-item">
+                <view class="home-info-label">预约门诊:</view>
+                <view class="home-info-value">青苗儿童口腔 - 北京火器营门诊</view>
+            </view>
+            <view class="home-info-c-item">
+                <view class="home-info-label">复诊项目:</view>
+                <view class="home-info-value">常规治疗复诊</view>
+            </view>
+            <view class="home-info-c-item">
+                <view class="home-info-label">复诊时间:</view>
+                <view class="home-info-value">2021年8月11日 12:30-21:00</view>
+            </view>
+            <view class="home-info-c-item" wx:if="{{activeIndex === 0}}">
+                <view class="home-info-label">患者提交:</view>
+                <view class="home-info-value">2021年8月11日 12:21:00</view>
+            </view>
+            <view class="home-info-c-item">
+                <view class="home-info-label">完成时间:</view>
+                <view class="home-info-value">2021年8月11日</view>
+            </view>
+            <view class="home-info-c-item">
+                <view class="home-info-label">下次复诊:</view>
+                <view class="home-info-value home-info-flex">
+                    <view class="">2021年8月11日</view>
+                    <view class="home-info-value-wj">未建</view>
+                </view>
+            </view>
+            <view class="home-info-c-item">
+                <view class="home-info-label">创建时间:</view>
+                <view class="home-info-value">2021年8月11日</view>
+            </view>
+        </view>
+        <view class="btn home-info-btn" wx:if="{{activeIndex === 0}}">开始线上复诊</view>
+        <!------------ 倒计时 -------------->
+        <view class="home-info-time" wx:if="{{activeIndex === 0}}">
+            <view style="margin-right: 12rpx;">任务超时</view>
+            <view class="home-time-date">01</view>
+            <view>时</view>
+            <view class="home-time-date">18</view>
+            <view>分</view>
+            <view class="home-time-date">01</view>
+            <view>秒</view>
+        </view>
+    </view>
+
+    <!-- ---------底部导航 --------- -->
+    <tabbar activeIdx="{{activeIdx}}"></tabbar>
+</view>

@@ -1,0 +1,39 @@
+<view class="info">
+    <view class="info-cell-wap">
+        <image class="info-cell-left" src="/images/info/info.png"></image>
+        <view class="info-cell-right">
+            <view class="info-cell-flex">
+                <view class="info-cell-f-l info-cell-name">
+                    <view>通知消息</view>
+                    <view class="info-cell-gf">官方</view>
+                </view>
+                <view class="info-cell-f-r info-cell-time">12:00</view>
+            </view>
+            <view class="info-cell-flex info-cell-btm">
+                <view class="info-cell-f-l info-cell-title">您的复诊资料已开启编辑，可行呀</view>
+                <view class="info-cell-f-r">
+                    <view class="info-cell-num">9</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="info-cell-item">
+        <view class="info-cell-wap" wx:for="item in 6" wx:key="index">
+            <image class="info-cell-left" src="/images/loginBj.png"></image>
+            <view class="info-cell-right">
+                <view class="info-cell-flex">
+                    <view class="info-cell-f-l info-cell-name">姓名</view>
+                    <view class="info-cell-f-r info-cell-time">12:00</view>
+                </view>
+                <view class="info-cell-flex info-cell-btm">
+                    <view class="info-cell-f-l info-cell-title">您的复诊资料已开启编辑，可行呀</view>
+                    <view class="info-cell-f-r">
+                        <view class="info-cell-num">9</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- ---------底部导航 --------- -->
+    <tabbar activeIdx="{{activeIdx}}"></tabbar>
+</view>

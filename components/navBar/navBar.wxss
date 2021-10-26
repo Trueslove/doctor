@@ -1,0 +1,35 @@
+/* components/navBar/navBar.wxss */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  font-size: 0;
+  height: 128rpx;
+  background: #FFFFFF;
+  align-items: center;
+  box-shadow: 0 -3rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.tabbar-item {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.tabbar-item-icon image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.tabbar-item-text {
+  font-size: 24rpx;
+  font-family: Alibaba PuHuiTi;
+  font-weight: 400;
+  line-height: 33rpx;
+  color: #000000;
+  margin-top: 9rpx;
+}
+.active {
+  color: #000000;
+}

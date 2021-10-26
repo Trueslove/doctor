@@ -1,0 +1,130 @@
+/* pages/login.wxss */
+.register-user-wap {
+    text-align: center;
+}
+.register-h-user {
+    width: 99rpx;
+    height: 99rpx;
+}
+.register-user-text {
+    font-size: 24rpx;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    line-height: 35rpx;
+    color: #A8A8A8;
+}
+.register-user-cell {
+    display: flex;
+    border-bottom: 2rpx solid #cecece;
+    margin-top: 18rpx;
+    height: 110rpx;
+    line-height: 110rpx;
+    align-items: center;
+}
+.register-user-label {
+    font-size: 32rpx;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    color: #A8A8A8;
+    margin-right: 48rpx;
+}
+.register-user-check {
+    display: flex;
+    flex: 1;
+    line-height: 39rpx;
+    flex-wrap: wrap;
+}
+.register-h-check {
+    width: 31rpx;
+    height: 31rpx;
+    margin-right: 17rpx;
+}
+.register-user-sex {
+    display: flex;
+    align-items: center;
+    line-height: 39rpx;
+    width: 50%;
+}
+.register-user-check-zc {
+    display: flex;
+    align-items: center;
+    line-height: 39rpx;
+    width: 50%;
+    margin-bottom: 43rpx;
+}
+.register-user-zc {
+    height: 104rpx;
+    margin-bottom: 43rpx;
+}
+.login-input {
+    font-size: 32rpx;
+    flex: 1;
+}
+.login {
+    height: 100%;
+    overflow: hidden;
+}
+.login-header {
+    width: 100%;
+    height: 518rpx;
+    position: relative;
+}
+.login-h-title {
+    position:absolute;
+    top: 118rpx;
+    left: 50rpx;
+    font-size: 42rpx;
+    font-weight: 500;
+    color: #fff;
+    font-family: Alibaba PuHuiTi;
+}
+.login-h-img {
+    height: 518rpx;
+    width: 100%;
+}
+.login-content {
+    background: linear-gradient(180deg, #65AFFB 0%, #1375D2 100%);
+    position: relative;
+    height: 100%;
+}
+.login-info-wap {
+    width: 552rpx;
+    padding: 35rpx 55rpx 28rpx;
+    background-color: #fff;
+    border-radius: 30rpx;
+    position: absolute;
+    top: -120rpx;
+    left: 45rpx;
+}
+.login-input::placeholder {
+    font-size: 26rpx;
+    color: #A8A8A8;
+}
+.login-input-code {
+     position: relative;
+     margin-top: 50rpx;
+}
+.login-login-btn {
+    margin-top: 62rpx;
+    height: 112rpx;
+    line-height: 112rpx;
+    border-radius: 62rpx;
+    width: 100%;
+    font-size: 36rpx;
+    font-weight: 400;
+}
+.login-text {
+    font-size: 24rpx;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    color: #A8A8A8;
+    width: 384rpx;
+    text-align: center;
+    margin: 18rpx auto 0;
+    line-height: 35rpx;
+}
+.register-user-cell-zc {
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 63rpx;
+}

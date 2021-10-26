@@ -1,0 +1,69 @@
+<view class="online">
+    <view class="detail-header">
+        <image class="detail-h-j" src="/images/home/detailBj.png"></image>
+        <view class="detail-h-txt" wx:if="{{type === 'online'}}">线上病例详情</view>
+        <view class="detail-h-txt" wx:if="{{type === 'unline'}}">线下病例详情</view>
+    </view>
+    <view class="edit-info-wap">
+        <view class="home-info-user">
+            <image class="home-user-left" src="/images/loginBj.png"></image>
+            <view class="home-user-right">
+                <view class="home-user-100 home-user-flex">
+                    <view class="home-user-name">周国辉</view>
+                    <image class="home-user-sex-icon" src="/images/user/nan.png"></image>
+                </view>
+                <view class="home-user-100" style="margin-top:6rpx">10岁 18828838281</view>
+                <view class="home-user-100 home-user-flex home-user-between">
+                    <view>2019/09/10</view>
+                    <view>医助：青小淼</view>
+                </view>
+            </view>
+        </view>
+        <!-- -----------详细信息 ----------- -->
+        <view class="detail-chat-wap">
+            <view class="detail-c-info">
+                <view class="detail-c-i-border"></view>
+                <view class="detail-c-title">2021-08-11  线上复诊病例</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">主诉：  </view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">现病史：</view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">既往史：</view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">口腔检查： </view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">诊断： </view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">治疗计划： </view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">处置： </view>
+                <view class="online-cell-value">向患者交代病情，治疗计划、费用、预后等，患者知情并同意治疗。局麻下拔除65 74，棉球压迫止血。建议罗慕早期咬合诱导，解释病情。患者及家属知情，要求考虑，则日治疗。</view>
+            </view>
+            <view class="online-cell-wap">
+                <view class="online-cell-label">医嘱： </view>
+                <view class="online-cell-value">门牙有点歪，要求检查。</view>
+            </view>
+        </view>
+
+        <!-- -----------操作按钮 ----------- -->
+        <view wx:if="{{type === 'online'}}">
+            <view class="online-btn btn" style="background: #FFB60C;" data-url="/pages/index/editForm/editForm" bind:tap="handleToPage">修改病例</view>
+            <view class="online-btn btn" style="background: #1375D2;" data-url="/pages/index/onlineDetail/onlineDetail" bind:tap="handleToPage">查看线上复诊资料</view>
+            <view class="online-btn btn" style="background: #BBDEFF;" data-url="/pages/index/detail/detail" bind:tap="handleToPage">查看在线沟通记录</view>
+        </view>
+    </view>
+</view>

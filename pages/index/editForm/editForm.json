@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "date-time-picker": "/components/date/date"
+  },
+  "navigationStyle": "custom"
+}
