@@ -1,13 +1,25 @@
 // import fetch from './utils/serve'
 // require('./utils/mixins')
+import Socket from "./utils/socket"
 App({
   onLaunch: function () {
+    //  // 手动关闭
+    //  ws.close()
     // 隐藏原生的tabbar
-    wx.hideTabBar()
+    // wx.hideTabBar()
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.screenHeight = res.statusBarHeight + 46; // 赋值导航高度
+      },
+      fail(err) {
+        console.log(err);
+      }
+    })
   },
   globalData: {
+    screenHeight: 0
   },
-  login(cb){
+  login(cb) {
     // wx.login({
     //   success: (res)=> {
     //     if (res.code) {

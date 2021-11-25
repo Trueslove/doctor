@@ -1,0 +1,13 @@
+/* components/backTop/backTop.wxss */
+.collectBox {
+    position: fixed;
+    width: 90rpx;
+    height: 80rpx;
+    right: 10rpx;
+    bottom: 50rpx;
+    z-index: 100000;
+}
+.collect-img {
+    width: 80rpx;
+    height: 80rpx;
+}

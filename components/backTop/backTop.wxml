@@ -1,0 +1,7 @@
+<view class='collectBox' 
+  bindtap='addCollect' 
+  bindtouchmove="touchmove" 
+  catch:touchmove 
+  style="left:{{write[0]}}px;top:{{write[1]}}px;">
+  <image class="collect-img" catch:tap="handleToTop" src='/images/chat/backTop.png'></image>
+</view>

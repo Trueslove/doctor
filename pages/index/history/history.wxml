@@ -1,82 +1,49 @@
 <view class="history">
     <view class="history-info-user">
         <view class="history-left-info">
-            <image class="history-user-left" src="/images/loginBj.png"></image>
+            <image class="history-user-left" src="{{userInfo.avatar}}"></image>
             <view class="history-user-l-text">育颜家患者</view>
         </view>
         <view class="history-user-right">
             <view class="history-user-100 history-user-flex">
-                <view class="history-user-name">周国辉</view>
-                <image class="history-user-sex-icon" src="/images/user/nv.png"></image>
+                <view class="history-user-name">{{userInfo.patientName}}</view>
+                <image wx:if="{{userInfo.sex == 1}}" class="history-user-sex-icon" src="/images/user/nan.png"></image>
+                <image wx:if="{{userInfo.sexFy == 2}}" class="history-user-sex-icon" src="/images/user/nv.png"></image>
             </view>
-            <view class="history-user-100">10岁 18828838281</view>
+            <view class="history-user-100" >{{userInfo.age}}岁 {{userInfo.phone}}</view>
             <view style="margin-top:-50rpx" class="history-user-100 history-user-flex history-user-between">
-                <view>2019/09/10</view>
-                <view>医助：青小淼</view>
+                <view>{{userInfo.birthdayStr}}</view>
+                <view>医助：{{userInfo.consultantName}}</view>
             </view>
         </view>
     </view>
     <view class="history-content">
         <view class="history-title">病例记录</view>
-        <view class="history-item-wap">
-            <view class="history-item-l">
-                <view class="history-i-time1">6月22日</view>
-                <view class="history-i-time2">2021年</view>
-            </view>
-            <view class="history-item-r">
-                <view class="history-item-r-t">咬合诱导-初诊</view>
-                <view class="history-i-r-cell">
-                    <view class="history-cell-label">诊断: </view>
-                    <view>同上</view>
-                </view>
-                <view class="history-i-r-cell">
-                    <view class="history-cell-label">治疗: </view>
-                    <view class="history-cell-value">一年直接抬棺</view>
-                </view>
-                <view class="history-i-r-cell">
-                    <view class="history-cell-label">医生: </view>
-                    <view>马亮</view>
-                </view>
-                <view class="history-i-btn btn" data-type="unline" data-url="/pages/index/online/online" bind:tap="handleToPage">查看详情</view>
-            </view>
-        </view>
-        <view class="history-item-wap">
-            <view class="history-item-l history-item-l-x">
-                <view class="history-i-time1">5月22日</view>
-                <view class="history-i-time2">2021年</view>
+        <view class="history-item-wap" wx:for="{{dataList}}" wx:key="{{index}}">
+            <view class="history-item-l {{item.on_line == 2 ? 'history-item-l-l' : ''}}">
+                <view class="history-i-time1">{{item.visitTimeMonth}}</view>
+                <view class="history-i-time2">{{item.visitTimeYear}}</view>
             </view>
             <view class="history-item-r">
                 <view class="history-item-r-t history-item-r-flex">
-                    <view>咬合诱导-线上复诊</view>
-                    <view class="history-item-r-x">线上</view>
+                    <view>{{item.chiefComplaint}}</view>
+                    <view class="history-item-r-x" wx:if="{{item.on_line == 2}}">线上</view>
+                </view>
+                <view class="history-i-r-cell" wx:if="{{item.on_line != 2}}">
+                    <view class="history-cell-label">诊断:</view>
+                    <view>{{item.diagnosis}}</view>
+                </view>
+                <view class="history-i-r-cell" wx:if="{{item.on_line != 2}}">
+                    <view class="history-cell-label">治疗:</view>
+                    <view class="history-cell-value">{{item.treatmentAdviceList}}</view>
                 </view>
                 <view class="history-i-r-cell">
-                    <view class="history-cell-label">医生: </view>
-                    <view>马亮</view>
+                    <view class="history-cell-label">医生:</view>
+                    <view>{{item.doctorName}}</view>
                 </view>
-                <view class="history-i-btn btn" data-type="online" data-url="/pages/index/online/online" bind:tap="handleToPage">查看详情</view>
-            </view>
-        </view>
-        <view class="history-item-wap">
-            <view class="history-item-l">
-                <view class="history-i-time1">6月22日</view>
-                <view class="history-i-time2">2021年</view>
-            </view>
-            <view class="history-item-r">
-                <view class="history-item-r-t">咬合诱导-初诊</view>
-                <view class="history-i-r-cell">
-                    <view class="history-cell-label">诊断: </view>
-                    <view>同上</view>
+                <view class="history-i-btn btn" data-type="{{item.on_line}}" data-id="{{item.medicalRecordNo}}" data-url="/pages/index/online/online" bind:tap="handleToPage">
+                    查看详情
                 </view>
-                <view class="history-i-r-cell">
-                    <view class="history-cell-label">治疗: </view>
-                    <view class="history-cell-value">一年直接抬棺一年直接抬棺</view>
-                </view>
-                <view class="history-i-r-cell">
-                    <view class="history-cell-label">医生: </view>
-                    <view>马亮</view>
-                </view>
-                <view class="history-i-btn btn" data-type="unline" data-url="/pages/index/onlineDetail/onlineDetail" bind:tap="handleToPage">查看详情</view>
             </view>
         </view>
     </view>

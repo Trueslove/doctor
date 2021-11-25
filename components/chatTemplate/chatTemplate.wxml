@@ -1,0 +1,36 @@
+<view class='wrap-bottom'>
+    <view class="flex_wrap flex-wrap">
+        <view class="msg-icon" bindtap='voice'>
+            <image class="msg-icon-img" src='{{voiceStatus?"/images/keyboard.png" : "/images/voice.png"}}' mode='aspectFit'></image>
+        </view>
+        <input class='from-input flex-item flex_item' auto-focus confirm-type="send" confirm-hold="true" type='text' value="{{msg}}" bindinput='inputMsg' bindconfirm='sendMsg' bindfocus='inputFocus' bindblur="inputBlur" cursor-spacing="30" wx:if="{{!voiceStatus}}"></input>
+        <view class='from-input flex-item flex_item item-btn' bindtouchstart='startVoice' bindtouchend='endVoice' bindtouchcancel='endVoice' wx:else>
+            按住 说话
+        </view>
+        <view class="msg-icon" bindtap='choiceType'>
+            <image src='/images/msgadd.png' class="msg-icon-img" mode='aspectFit'></image>
+        </view>
+    </view>
+    <view class="flex-wrap wrap-choice" wx:if="{{choiceType}}" bindtap='choiceClose'>
+        <view class="flex-item" data-type="album" bindtap='choosePhoto'>
+            <image src='/images/photo.png' mode='aspectFit'></image>
+            <text>照片</text>
+        </view>
+        <view class="flex-item" data-type="camera" bindtap='choosePhoto'>
+            <image src='/images/photograph.png' mode='aspectFit'></image>
+            <text>拍照</text>
+        </view>
+        <view class="flex-item" data-type="album" bindtap='chooseVideo'>
+            <image src='/images/video.png' mode='aspectFit'></image>
+            <text>视频</text>
+        </view>
+        <view class="flex-item" data-type="camera" bindtap='chooseVideo'>
+            <image src='/images/take.png' mode='aspectFit'></image>
+            <text>拍摄</text>
+        </view>
+        <view class="flex-item"></view>
+    </view>
+</view>
+<view class="audio-open" wx:if="{{audioStatus}}">
+    <image src="/images/audio.gif" mode="widthFix"></image>
+</view>

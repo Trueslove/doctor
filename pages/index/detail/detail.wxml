@@ -1,4 +1,6 @@
 <view class="detail">
+    <back></back>
+    <backTop></backTop>
     <view class="detail-header">
         <image class="detail-h-j" src="/images/home/detailBj.png"></image>
         <view class="detail-h-txt">图文沟通</view>
@@ -8,61 +10,94 @@
             <view class="detail-c-i-border"></view>
             <view class="detail-c-title">本次复诊资料</view>
         </view>
-
         <!-- ---------- 预约信息 ------------ -->
         <view class="detail-info-c-wap">
             <view class="home-info-content">
                 <view class="home-info-c-item">
                     <view class="home-info-label">预约门诊:</view>
-                    <view class="home-info-value">青苗儿童口腔 - 北京火器营门诊</view>
+                    <view class="home-info-value">{{dataInfo.officeName}}</view>
                 </view>
                 <view class="home-info-c-item">
                     <view class="home-info-label">复诊项目:</view>
-                    <view class="home-info-value">常规治疗复诊</view>
+                    <view class="home-info-value">{{dataInfo.procedures}}</view>
                 </view>
                 <view class="home-info-c-item">
                     <view class="home-info-label">复诊时间:</view>
-                    <view class="home-info-value">2021年8月11日 12:30-21:00</view>
+                    <view class="home-info-value">{{dataInfo.procedures_time}}</view>
                 </view>
                 <view class="home-info-c-item">
                     <view class="home-info-label">患者提交:</view>
-                    <view class="home-info-value">2021年8月11日</view>
+                    <view class="home-info-value">{{dataInfo.add_time}}</view>
                 </view>
                 <view class="home-info-c-item">
                     <view class="home-info-label">创建时间:</view>
-                    <view class="home-info-value">2021年8月11日</view>
+                    <view class="home-info-value">{{dataInfo.create_time}}</view>
                 </view>
             </view>
         </view>
         <!-- ---------- 倒计时 ------------ -->
         <view class="home-info-time">
-            <view style="margin-right: 12rpx;">任务超时</view>
-            <view class="home-time-date">01</view>
+            <view style="margin-right: 12rpx;">任务倒计时</view>
+            <view class="home-time-date">{{shi}}</view>
             <view>时</view>
-            <view class="home-time-date">18</view>
+            <view class="home-time-date">{{fen}}</view>
             <view>分</view>
-            <view class="home-time-date">01</view>
+            <view class="home-time-date">{{miao}}</view>
             <view>秒</view>
         </view>
         <!-- ---------- 聊天信息 ------------ -->
         <view class="detail-chat-wap">
-            <view class="detail-chat-cell detail-chat-left">
-                <image class="detail-chat-img" src="/images/loginBj.png"></image>
-                <view class="detail-chat-info">
-                    <view class="detail-chat-name">旭光红</view>
-                    <view class="detail-chat-txt detail-chat-l-txt">
-                        要不您看您今天哪个时间段方便，咱们视频沟通一下
+            <view wx:for="{{chatList}}" style="margin-bottom:20rpx">
+                <view class="detail-chat-cell detail-chat-left" wx:if="{{item.type == 1}}">
+                    <image class="detail-chat-img" src="{{item.avatar}}"></image>
+                    <view class="detail-chat-info">
+                        <view class="detail-chat-name">{{item.name}}</view>
+                        <view wx:if="{{item.list == 0}}" class="detail-chat-txt detail-chat-l-txt">
+                            {{item.message}}
+                        </view>
+                        <view wx:if="{{item.list == 1}}" class="detail-chat-txt detail-chat-l-txt">
+                            <image class="detail-h-j-img" src="{{item.message}}"></image>
+                        </view>
+                        <view wx:if="{{item.list == 2}}" class="detail-chat-txt detail-chat-l-txt">
+                            <view class="chat-content-list-voice" catch:tap="audioPlay" data-index="{{index}}" data-url="{{item.message}}" wx:if="{{!item.isPlay}}">
+                                <image class="chat-voice-img" style="margin-right:15rpx" src="/images/chat/audit.png"></image>
+                                <text class="chat-voice-text">{{item.time}}</text>
+                            </view>
+                            <view class="chat-content-list-voice" catch:tap="audioStop" data-index="{{index}}" wx:if="{{item.isPlay}}">
+                                <image class="chat-voice-img" style="margin-right:15rpx" src="/images/chat/wifi.gif"></image>
+                                <text class="chat-voice-text">播放中</text>
+                            </view>
+                        </view>
+                        <view wx:if="{{item.list == 3}}" class="detail-chat-txt detail-chat-l-txt">
+                            <video class="detail-h-j-img" src="{{item.message}}"></video>
+                        </view>
                     </view>
                 </view>
-            </view>
-            <view class="detail-chat-cell detail-chat-right">
-                <view class="detail-chat-r-info">
-                    <view class="detail-chat-name detail-chat-r-name">旭光红</view>
-                    <view class="detail-chat-txt detail-chat-r-txt">
-                        要不您看您今天哪个时间段方便，咱们视频沟通一下
+                <view class="detail-chat-cell detail-chat-right" wx:if="{{item.type == 2}}">
+                    <view class="detail-chat-r-info">
+                        <view class="detail-chat-name detail-chat-r-name">{{item.name}}</view>
+                        <view wx:if="{{item.list == 0}}" class="detail-chat-txt detail-chat-r-txt">
+                            {{item.message}}
+                        </view>
+                        <view wx:if="{{item.list == 1}}" class="detail-chat-txt detail-chat-r-txt">
+                            <image class="detail-h-j-img" src="{{item.message}}"></image>
+                        </view>
+                        <view wx:if="{{item.list == 2}}" class="detail-chat-txt detail-chat-r-txt">
+                            <view class="chat-content-list-voice" catch:tap="audioPlay" data-index="{{index}}" data-url="{{item.message}}" wx:if="{{!item.isPlay}}">
+                                <text class="chat-voice-text">{{item.time}}</text>
+                                <image class="chat-voice-img" style="margin-left:15rpx;transform: rotate(180deg);" src="/images/chat/audit.png"></image>
+                            </view>
+                            <view class="chat-content-list-voice" catch:tap="audioStop" data-index="{{index}}" wx:if="{{item.isPlay}}">
+                                <text class="chat-voice-text">{{item.time}}</text>
+                                <image class="chat-voice-img" style="margin-left:15rpx;transform: rotate(180deg);" src="/images/chat/wifi.gif"></image>
+                            </view>
+                        </view>
+                        <view wx:if="{{item.list == 3}}" class="detail-chat-txt detail-chat-r-txt">
+                            <video class="detail-h-j-img" src="{{item.message}}"></video>
+                        </view>
                     </view>
+                    <image class="detail-chat-img" src="{{item.avatar}}"></image>
                 </view>
-                <image class="detail-chat-img" src="/images/loginBj.png"></image>
             </view>
         </view>
     </view>

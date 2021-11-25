@@ -164,6 +164,16 @@
     top: 98rpx;
     z-index: 0;
   }
+
+  .history-item-l-l::after {
+    content: "";
+    position: absolute;
+    width: 6rpx;
+    height: 200rpx;
+    background: #E1E1E1;
+    top: 98rpx;
+    z-index: 0;
+  }
   .history-item-l-x::after {
     content: "";
     position: absolute;

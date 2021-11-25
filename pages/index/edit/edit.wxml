@@ -1,0 +1,72 @@
+<view class="edit-form">
+    <back></back>
+    <view class="detail-header">
+        <image class="detail-h-j" src="/images/home/detailBj.png"></image>
+        <view class="detail-h-txt">线上复诊修改</view>
+    </view>
+    <!-- ---------- 患者信息 ------------ -->
+    <view class="edit-info-wap">
+        <view class="edit-info-user">
+            <view class="edit-user-l-wap">
+                <image class="edit-user-left" src="{{dataInfo.avatar}}"></image>
+            </view>
+            <view class="edit-user-right">
+                <view class="edit-user-100 edit-user-flex">
+                    <view class="edit-user-name">{{dataInfo.patientName}}</view>
+                    <view class="edit-user-flex-name">
+                        <view class="edit-user-job">医助</view>
+                        <view class="edit-user-job-name">{{dataInfo.consultantName}}</view>
+                    </view>
+                </view>
+                <view class="edit-user-100" style="margin-top:6rpx">
+                    {{dataInfo.sex == 1 ? '男' : '女'}} {{dataInfo.age}}岁 {{dataInfo.phone}}
+                </view>
+                <view class="edit-user-100 edit-user-flex edit-user-between">
+                    <view>{{dataInfo.birthday}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- --------- 线上复诊病例 ----------- -->
+        <view class="detail-chat-wap">
+            <view class="detail-c-info edit-form-flex-c" style="padding-bottom:15rpx">
+                <view class="detail-c-i-border"></view>
+                <view class="detail-c-title">线上复诊病例</view>
+            </view>
+            <view class="edit-form-cell-wap">
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">主诉:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" value="{{onlineInfo.chief_complaint}}" bind:input="handleInput" data-key="chief_complaint" placeholder-class="input-placeholder" placeholder="请输入患者主诉" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">检查:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" value="{{onlineInfo.examination}}" bind:input="handleInput" data-key="examination" placeholder-class="input-placeholder" placeholder="请输入检查情况" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">诊断:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" value="{{onlineInfo.diagnosis}}" bind:input="handleInput" data-key="diagnosis" placeholder-class="input-placeholder" placeholder="请输入诊断内容" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">处置:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" value="{{onlineInfo.dispose}}" bind:input="handleInput" data-key="dispose" placeholder-class="input-placeholder" placeholder="请输入处置内容" type="text" />
+                    </view>
+                </view>
+                <view class="edit-form-cell">
+                    <view class="edit-cell-label">医嘱:</view>
+                    <view class="edit-cell-input">
+                        <input class="edit-input" value="{{onlineInfo.doctor_order}}" bind:input="handleInput" data-key="doctor_order" placeholder-class="input-placeholder" placeholder="请输入医嘱内容" type="text" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="btn edit-info-btn" data-type="0" catch:tap="handleSave">
+            确认修改
+        </view>
+    </view>
+</view>

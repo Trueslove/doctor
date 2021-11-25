@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "date-time-picker": "/components/date/date"
+    "back": "/components/back/back",
+    "backTop": "/components/backTop/backTop",
+    "date-time-picker": "/components/date/date",
+    "chatTemplate": "/components/chatTemplate/chatTemplate"
   },
   "navigationStyle": "custom"
 }

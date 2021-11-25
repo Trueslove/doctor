@@ -1,0 +1,12 @@
+@mixin safeAreaHeight($key) {
+  #{$key}: 0;
+  #{$key}: constant(safe-area-inset-bottom);
+  #{$key}: env(safe-area-inset-bottom);
+}
+
+@mixin safeAreaHeightAdd($key, $param: 0) {
+  #{$key}: #{$param};
+  #{$key}: calc(#{$param} + constant(safe-area-inset-bottom));
+  #{$key}: calc(#{$param} + env(safe-area-inset-bottom));
+}
+

@@ -1,84 +1,111 @@
 <view class="home">
-    <!------------ 头部搜索 -------------->
+    <!-- ---------- 头部搜索 ------------ -->
     <view class="home-header">
-        <view class="home-h-title">
-            任务列表
-        </view>
+        <!-- <view class="home-h-title">任务列表</view> -->
         <view class="home-h-input-wap">
             <image class="home-h-search" src="/images/home/search.png"></image>
-            <input class="home-h-input" placeholder-class="home-h-input" placeholder="搜索患者姓名" type="text"/>
+            <input class="home-h-input" value="{{patientName}}" bindinput="handleChangeInput" placeholder-class="home-h-input" placeholder="搜索患者姓名" type="text" />
         </view>
     </view>
-    <!------------ tab栏 -------------->
+    <!-- ---------- tab栏 ------------ -->
     <view class="home-type-wap">
-        <view wx:for="{{typeItem}}" class="home-type-item {{index === activeIndex ? 'home-active' : ''}}" wx:key="index" data-index="{{index}}" bindtap="handleChangeType" data-item="item">
+        <view wx:for="{{typeItem}}" class="home-type-item {{item.type === activeIndex ? 'home-active' : ''}}" wx:key="index" data-index="{{item.type}}" bindtap="handleChangeType" data-item="item">
             <view class="home-type-label">{{item.label}}</view>
-            <view class="home-type-num">{{item.num}}</view>
+            <view class="home-type-num" wx:if="{{typeNum[item.key]}}">{{typeNum[item.key]}}</view>
         </view>
     </view>
-    <!------------ 患者信息 -------------->
-    <view class="home-info-wap" bindtap="handleToPageDetail">
+    <!-- ---------- 患者信息 ------------ -->
+    <view class="home-info-wap" bindtap="handleToPageDetail" wx:for="{{dataList}}" data-row="{{item}}" wx:key="index">
         <view class="home-info-user">
-            <image class="home-user-left" src="/images/loginBj.png"></image>
+            <image class="home-user-left" src="{{item.user.avatar}}"></image>
             <view class="home-user-right">
                 <view class="home-user-100 home-user-flex">
-                    <view class="home-user-name">周国辉</view>
-                    <image class="home-user-sex-icon" src="/images/user/nan.png"></image>
+                    <view class="home-user-name">{{item.patientName}}</view>
+                    <image class="home-user-sex-icon" wx:if="{{item.sex == 1}}" src="/images/user/nan.png"></image>
+                    <image class="home-user-sex-icon" wx:if="{{item.sex == 2}}" src="/images/user/nv.png"></image>
                 </view>
-                <view class="home-user-100" style="margin-top:6rpx">10岁 18828838281</view>
+                <view class="home-user-100" style="margin-top:6rpx">
+                    {{item.user.age}}岁 {{item.user.mobile}}
+                </view>
                 <view class="home-user-100 home-user-flex home-user-between">
-                    <view>2019/09/10</view>
-                    <view>医助：青小淼</view>
+                    <view>{{item.user.birthday}}</view>
+                    <view>医助：{{item.consultantName}}</view>
                 </view>
             </view>
-            <image class="home-user-new" src="/images/home/new.png"></image>
+            <image wx:if="{{item.is_check == 0}}" class="home-user-new" src="/images/home/new.png"></image>
         </view>
         <view class="home-info-content">
             <view class="home-info-c-item">
                 <view class="home-info-label">预约门诊:</view>
-                <view class="home-info-value">青苗儿童口腔 - 北京火器营门诊</view>
+                <view class="home-info-value">{{item.officeName}}</view>
             </view>
             <view class="home-info-c-item">
                 <view class="home-info-label">复诊项目:</view>
-                <view class="home-info-value">常规治疗复诊</view>
+                <view class="home-info-value">{{item.procedures}}</view>
             </view>
             <view class="home-info-c-item">
                 <view class="home-info-label">复诊时间:</view>
-                <view class="home-info-value">2021年8月11日 12:30-21:00</view>
+                <view class="home-info-value">{{item.procedures_time}}</view>
             </view>
-            <view class="home-info-c-item" wx:if="{{activeIndex === 0}}">
+            <view class="home-info-c-item" wx:if="{{item.type !== 5 && item.type !== 3}}">
                 <view class="home-info-label">患者提交:</view>
-                <view class="home-info-value">2021年8月11日 12:21:00</view>
+                <view class="home-info-value">{{item.addTime}}</view>
             </view>
-            <view class="home-info-c-item">
+            <view class="home-info-c-item" wx:if="{{item.type === 4}}">
                 <view class="home-info-label">完成时间:</view>
-                <view class="home-info-value">2021年8月11日</view>
+                <view class="home-info-value">{{item.updateTime}}</view>
             </view>
-            <view class="home-info-c-item">
+            <view class="home-info-c-item" wx:if="{{item.type === 4}}">
                 <view class="home-info-label">下次复诊:</view>
                 <view class="home-info-value home-info-flex">
-                    <view class="">2021年8月11日</view>
-                    <view class="home-info-value-wj">未建</view>
+                    <view class="">{{item.next_time}}</view>
+                    <view wx:if="{{item.is_input == 0}}" class="home-info-value-wj">未建</view>
+                    <view wx:if="{{item.is_input == 1}}" class="home-info-value-wj">建立</view>
                 </view>
             </view>
             <view class="home-info-c-item">
                 <view class="home-info-label">创建时间:</view>
-                <view class="home-info-value">2021年8月11日</view>
+                <view class="home-info-value">{{item.createTime}}</view>
+            </view>
+            <view class="home-info-c-item" wx:if="{{item.type === 1}}">
+                <view class="home-info-label">任务超时:</view>
+                <view class="home-info-value home-info-flex">
+                    <view class="">2021年8月11日</view>
+                    <view class="home-info-value-wj">超时</view>
+                </view>
             </view>
         </view>
-        <view class="btn home-info-btn" wx:if="{{activeIndex === 0}}">开始线上复诊</view>
-        <!------------ 倒计时 -------------->
-        <view class="home-info-time" wx:if="{{activeIndex === 0}}">
-            <view style="margin-right: 12rpx;">任务超时</view>
-            <view class="home-time-date">01</view>
-            <view>时</view>
-            <view class="home-time-date">18</view>
-            <view>分</view>
-            <view class="home-time-date">01</view>
-            <view>秒</view>
+        <view class="btn home-info-btn" catch:tap="handleToPageOnline" data-row="{{item}}" wx:if="{{item.type === 2}}">
+            开始线上复诊
+        </view>
+        <view class="btn home-info-btn" catch:tap="handleToPageOnline" data-row="{{item}}" wx:if="{{item.type === 1}}">
+            查看复诊记录
+        </view>
+        <view class="btn home-info-btn" wx:if="{{item.type === 4}}">查看复诊记录</view>
+        <!-- ---------- 倒计时 ------------ -->
+        <view wx:if="{{item.type === 2}}">
+            <view class="home-info-time" wx:if="{{item.time_status === 2}}">
+                <view style="margin-right: 12rpx;">任务超时</view>
+                <view class="home-time-date">{{item.shi}}</view>
+                <view>时</view>
+                <view class="home-time-date">{{item.fen}}</view>
+                <view>分</view>
+                <view class="home-time-date">{{item.miao}}</view>
+                <view>秒</view>
+            </view>
+            <view class="home-info-time" wx:else>
+                <view style="margin-right: 12rpx;">任务倒计时</view>
+                <view class="home-time-date">{{item.shi}}</view>
+                <view>时</view>
+                <view class="home-time-date">{{item.fen}}</view>
+                <view>分</view>
+                <view class="home-time-date">{{item.miao}}</view>
+                <view>秒</view>
+            </view>
         </view>
     </view>
-
+    <view class="home-info-null1" wx:if="{{isShowMore}}">暂无更多信息～</view>
+    <view class="home-info-null" wx:if="{{dataList.length == 0}}">暂无信息</view>
     <!-- ---------底部导航 --------- -->
-    <tabbar activeIdx="{{activeIdx}}"></tabbar>
+    <!-- <tabbar activeIdx="{{activeIdx}}"></tabbar> -->
 </view>

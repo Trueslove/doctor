@@ -1,0 +1,109 @@
+<view class="gt-history {{choiceType && 'choice-type' || height && 'heighter' || ''}}"  bindtap='choiceClose'>
+    <back></back>
+    <!-- <view class="online-re-header">
+        <view class="online-re-h-tit">{{user.doctor_name}}</view>
+    </view> -->
+    <view class="chat-content">
+      <scroll-view scroll-y
+      bindscrolltoupper="upper"
+      bindscrolltolower="lower"
+      bindscroll="scroll"
+      scroll-with-animation="true"
+      scroll-into-view="{{toView}}">
+        <view class="gt-history-time">{{user.doctor_name}}医生已开启图文聊天，就本次复诊请在此沟通</view>
+        <!-- ---------- 聊天信息 ------------ -->
+        <view class="detail-chat-wap" wx:for="{{list}}" wx:key="index" id="start{{index}}">
+            <view class="gt-history-date" wx:if="{{item.add_time}}">{{item.add_time}}</view>
+            <view class="detail-chat-cell detail-chat-left" wx:if="{{item.style == 1}}">
+                <view class="detail-chat-img img">
+                    <image class="detail-chat-img-avatar" mode="{{imageMode}}" src="{{item.avatar}}"></image>
+                </view>
+                <view class="detail-chat-info">
+                    <view class="detail-chat-name">{{item.name}}</view>
+                    <view class="detail-chat-txt detail-chat-l-txt" wx:if="{{item.list === 0}}">
+                        {{item.message}}
+                    </view>
+                    <view class="detail-chat-txt detail-chat-image detail-chat-l-txt" wx:elif="{{item.list === 1}}" data-url='{{item.message}}' bindtap='openPhoto'>
+                        <image class="content-image" src="{{item.message}}" mode='aspectFill'></image>
+                    </view>
+                    <view class="detail-chat-txt detail-chat-l-txt audio" wx:elif="{{item.list === 2}}" data-url='{{item.message}}' bindtap='openAudio'>
+                        {{item.time}}
+                        <image src='{{item.message === audioUrl ? "/images/audioleft.gif" : "/images/audioleft.png"}}' mode='aspectFit'></image>
+                    </view>
+                    <view class="detail-chat-txt detail-chat-video detail-chat-l-txt" wx:elif="{{item.list === 3}}">
+                        <video
+                        src="{{item.message}}"
+                        show-center-play-btn='{{false}}' 
+                        show-play-btn="{{true}}" 
+                        controls="{{false}}"
+                        ></video>
+                    </view>
+                </view>
+            </view>
+            <view class="detail-chat-cell detail-chat-right" wx:else>
+                <view class="detail-chat-r-info">
+                    <view class="detail-chat-name detail-chat-r-name">{{item.name}}</view>
+                    <view class="detail-chat-txt detail-chat-r-txt" wx:if="{{item.list === 0}}">
+                        {{item.message}}
+                    </view>
+                    <view class="detail-chat-txt detail-chat-image detail-chat-r-txt" wx:elif="{{item.list === 1}}" data-url='{{item.message}}' bindtap='openPhoto'>
+                        <image class="content-image" src="{{item.message}}" mode='aspectFill'></image>
+                    </view>
+                    <view class="detail-chat-txt detail-chat-r-txt audio flex-wrap flex-middle" wx:elif="{{item.list === 2}}" data-url='{{item.message}}' bindtap='openAudio'>
+                        <image src='{{item.message === audioUrl ? "/images/audioright.gif" : "/images/audioright.png"}}' mode='aspectFit'></image>
+                        {{item.time}}
+                    </view>
+                    <view class="detail-chat-txt detail-chat-video detail-chat-r-txt" wx:elif="{{item.list === 3}}">
+                        <video
+                        id="video{{index}}"
+                        src="{{item.message}}"
+                        show-center-play-btn='{{true}}'
+                        controls
+                        bindplay="videoPlay"
+                        bindfullscreenchange="fullscreenchange"
+                        ></video>
+                    </view>
+                </view>
+                <view class="detail-chat-img img">
+                    <image class="detail-chat-img-avatar" mode="{{imageMode}}" src="{{item.avatar}}"></image>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    </view>
+</view>
+<view class='wrap-bottom'>
+  <view class="flex_wrap flex-wrap">
+    <view class="msg-icon" bindtap='voice'>
+      <image class="msg-icon-img" src='{{voiceStatus?"/images/keyboard.png" : "/images/voice.png"}}' mode='aspectFit'></image>
+    </view>
+    <input class='from-input flex-item flex_item' confirm-type="send" confirm-hold="true" type='text' value="{{msg}}" bindinput='inputMsg' bindconfirm='sendMsg' bindfocus='inputFocus' bindblur="inputBlur" cursor-spacing="30" wx:if="{{!voiceStatus}}"></input>
+    <view class='from-input flex-item flex_item item-btn' bindtouchstart='startVoice' bindtouchend='endVoice' bindtouchcancel='endVoice' wx:else>按住 说话</view>
+    <view class="msg-icon" bindtap='choiceType'>
+      <image src='/images/msgadd.png' class="msg-icon-img" mode='aspectFit'></image>
+    </view>
+  </view>
+  <view class="flex-wrap wrap-choice" wx:if="{{choiceType}}" bindtap='choiceClose'>
+    <view class="flex-item" data-type="album" bindtap='choosePhoto'>
+      <image src='/images/photo.png' mode='aspectFit'></image>
+      <text>照片</text>
+    </view>
+    <view class="flex-item" data-type="camera" bindtap='choosePhoto'>
+      <image src='/images/photograph.png' mode='aspectFit'></image>
+      <text>拍照</text>
+    </view>
+    <view class="flex-item" data-type="album" bindtap='chooseVideo'>
+      <image src='/images/video.png' mode='aspectFit'></image>
+      <text>视频</text>
+    </view>
+    <view class="flex-item" data-type="camera" bindtap='chooseVideo'>
+      <image src='/images/take.png' mode='aspectFit'></image>
+      <text>拍摄</text>
+    </view>
+    <view class="flex-item">
+    </view>
+  </view>
+</view>
+<view class="audio-open" wx:if="{{audioStatus}}">
+  <image src="/images/audio.gif" mode="widthFix"></image>
+</view>

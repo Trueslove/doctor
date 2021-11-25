@@ -1,4 +1,52 @@
 /* pages/info/info.wxss */
+.info-cell-f-l-tit {
+    font-size: 30rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    line-height: 42rpx;
+    color: #878787;
+    overflow: hidden;/*超出部分隐藏*/
+    text-overflow:ellipsis;/* 超出部分显示省略号 */
+    white-space: nowrap;/*规定段落中的文本不进行换行 */
+}
+.home-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 130rpx;
+    background-color: #0087E4;
+    overflow: hidden;
+    padding: 0 29rpx;
+    z-index: 1000;
+  }
+.home-h-input-wap {
+    margin-top: 20rpx;
+    width: 692rpx;
+    height: 87rpx;
+    background: rgba(250, 250, 250, 0.23);
+    border-radius: 14rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .home-h-search {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 32rpx;
+  }
+  .home-h-input {
+    height: 87rpx;
+    margin-left: 13rpx;
+    height: 38rpx;
+    font-size: 28rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    line-height: 38rpx;
+    color: #FFFFFF;
+    padding-right: 20rpx;
+    flex: 1;
+  }
 .info-cell-wap {
     height: 160rpx;
     padding: 0 30rpx 0 35rpx;

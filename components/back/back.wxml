@@ -1,0 +1,6 @@
+<view class="back-wap" style="height: {{navHeight}}rpx">
+    <image class="back-icon-bj" src="/images/home/detailBj.png" alt="" />
+    <view class="back-icon" style="top: {{iconTop}}rpx;" bind:tap="handleBack">
+        <image class="back-icon-img" src="../../images/home/arrow.png" alt="" />
+    </view>
+</view>

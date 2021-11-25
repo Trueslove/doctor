@@ -1,39 +1,55 @@
-<view class="info">
-    <view class="info-cell-wap">
+<view class="info" style="{{loginType == 2 ? 'padding-top: 130rpx;' : ''}}">
+    <view class="home-header" wx:if="{{loginType == 2}}">
+        <view class="home-h-input-wap">
+            <image class="home-h-search" src="/images/home/search.png"></image>
+            <input class="home-h-input" value="{{patientName}}" bindinput="handleChangeInput" placeholder-class="home-h-input" placeholder="搜索患者姓名" type="text"/>
+        </view>
+    </view>
+    <view class="info-cell-wap" bind:tap="handleToPageDetail">
         <image class="info-cell-left" src="/images/info/info.png"></image>
         <view class="info-cell-right">
             <view class="info-cell-flex">
                 <view class="info-cell-f-l info-cell-name">
-                    <view>通知消息</view>
+                    <view class="info-cell-f-l-tit" wx:if="{{loginType == 2}}">
+                        {{system_message.content}}
+                    </view>
+                    <view wx:if="{{loginType != 2}}">
+                        消息通知
+                    </view>
                     <view class="info-cell-gf">官方</view>
                 </view>
-                <view class="info-cell-f-r info-cell-time">12:00</view>
             </view>
-            <view class="info-cell-flex info-cell-btm">
-                <view class="info-cell-f-l info-cell-title">您的复诊资料已开启编辑，可行呀</view>
+            <view class="info-cell-flex info-cell-btm" wx:if="{{loginType == 2}}">
+                <view class="info-cell-f-l info-cell-title">有{{system_message.count}}个新增复诊任务待完成</view>
                 <view class="info-cell-f-r">
-                    <view class="info-cell-num">9</view>
+                    <view class="info-cell-num">{{system_message.count}}</view>
+                </view>
+            </view>
+            <view class="info-cell-flex info-cell-btm" wx:if="{{loginType != 2}}">
+                <view class="info-cell-f-l info-cell-title">有{{system_message}}个新增复诊任务待完成</view>
+                <view class="info-cell-f-r">
+                    <view class="info-cell-num">{{system_message}}</view>
                 </view>
             </view>
         </view>
     </view>
     <view class="info-cell-item">
-        <view class="info-cell-wap" wx:for="item in 6" wx:key="index">
-            <image class="info-cell-left" src="/images/loginBj.png"></image>
+        <view class="info-cell-wap" wx:for="{{dataList}}" wx:key="index" data-row="{{item}}" bind:tap="handleToPageDetail">
+            <image class="info-cell-left" wx:if="{{loginType == 2}}" src="{{item.avatar}}"></image>
+            <image class="info-cell-left" wx:if="{{loginType != 2}}" src="{{item.user.avatar}}"></image>
             <view class="info-cell-right">
                 <view class="info-cell-flex">
-                    <view class="info-cell-f-l info-cell-name">姓名</view>
-                    <view class="info-cell-f-r info-cell-time">12:00</view>
+                    <view class="info-cell-f-l info-cell-name" wx:if="{{loginType == 2}}">{{item.real_name}}</view>
+                    <view class="info-cell-f-l info-cell-name" wx:if="{{loginType != 2}}">{{item.user.real_name}}</view>
+                    <view class="info-cell-f-r info-cell-time">{{item.new_time}}</view>
                 </view>
                 <view class="info-cell-flex info-cell-btm">
-                    <view class="info-cell-f-l info-cell-title">您的复诊资料已开启编辑，可行呀</view>
+                    <view class="info-cell-f-l info-cell-title">{{item.new_message}}</view>
                     <view class="info-cell-f-r">
-                        <view class="info-cell-num">9</view>
+                        <view class="info-cell-num">{{item.messsage_count}}</view>
                     </view>
                 </view>
             </view>
         </view>
     </view>
-    <!-- ---------底部导航 --------- -->
-    <tabbar activeIdx="{{activeIdx}}"></tabbar>
 </view>

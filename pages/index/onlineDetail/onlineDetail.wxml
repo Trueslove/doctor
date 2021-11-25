@@ -1,60 +1,81 @@
 <view class="online">
+    <back></back>
     <view class="detail-header">
         <image class="detail-h-j" src="/images/home/detailBj.png"></image>
         <view class="detail-h-txt">线上复诊资料</view>
     </view>
     <view class="edit-info-wap">
         <view class="home-info-user">
-            <image class="home-user-left" src="/images/loginBj.png"></image>
+            <image class="home-user-left" src="{{dataInfo.avatar}}"></image>
             <view class="home-user-right">
                 <view class="home-user-100 home-user-flex">
-                    <view class="home-user-name">周国辉</view>
-                    <image class="home-user-sex-icon" src="/images/user/nan.png"></image>
+                    <view class="home-user-name">{{dataInfo.patientName}}</view>
+                    <image wx:if="{{dataInfo.sex == 1}}" class="home-user-sex-icon" src="/images/user/nan.png"></image>
+                    <image wx:if="{{dataInfo.sex != 1}}" class="home-user-sex-icon" src="/images/user/nv.png"></image>
                 </view>
-                <view class="home-user-100" style="margin-top:6rpx">10岁 18828838281</view>
+                <view class="home-user-100" style="margin-top:6rpx">
+                    {{dataInfo.age}}岁 {{dataInfo.phone}}
+                </view>
                 <view class="home-user-100 home-user-flex home-user-between">
-                    <view>2019/09/10</view>
-                    <view>医助：青小淼</view>
+                    <view>{{dataInfo.birthday}}</view>
+                    <view>医助：{{dataInfo.consultantName}}</view>
                 </view>
             </view>
         </view>
-         <!-- -----------详细信息 ----------- -->
+        <!-- -----------详细信息 ----------- -->
         <view class="detail-chat-wap">
             <view class="detail-c-info">
                 <view class="detail-c-i-border"></view>
-                <view class="detail-c-title">2021-08-11  线上复诊病例</view>
+                <view class="detail-c-title">{{dataInfo.add_time}}  线上复诊病例</view>
             </view>
-            <view class="online-detail-content">
-                <view class="online-detail-img-wap">
-                    <view class="online-detail-tit">照片1-牙齿正面照</view>
-                    <image class="online-detail-img" src="/images/loginBj.png" />
+            <view wx:for="{{imgList}}">
+                <view>
+                    <!-- ------- 照片信息 ---------- -->
+                    <view class="detail-chat-txt-flex">
+                        <view class="detail-chat-txt-left">{{item.title}}</view>
+                    </view>
+                    <image class="edit-form-info-img" src="{{item.url}}" />
                 </view>
-            </view>
-             <!-- ---------- 聊天信息 ------------ -->
-
-            <view class="detail-chat-cell detail-chat-left">
-                <image class="detail-chat-img" src="/images/loginBj.png"></image>
-                <view class="detail-chat-info">
-                    <view class="detail-chat-name">旭光红</view>
-                    <view class="detail-chat-txt detail-chat-l-txt">
-                        要不您看您今天哪个时间段方便，咱们视频沟通一下
+                <view class="detail-chat-cell detail-chat-left">
+                    <image class="detail-chat-img" src="{{dataInfo.avatar}}"></image>
+                    <view class="detail-chat-info">
+                        <view class="detail-chat-name">{{dataInfo.patientName}}</view>
+                        <!-- ------- 聊天信息 ---------- -->
+                        <view class="detail-chat-info-cell">
+                            <view class="detail-chat-txt detail-chat-l-txt">
+                                {{item.user_content}}
+                            </view>
+                        </view>
+                        <view class="detail-docker-right">
+                            <view wx:if="{{item.doctor_type == 0}}" class="detail-chat-txt detail-chat-r-txt">
+                                {{item.doctor_content}}
+                            </view>
+                            <view wx:if="{{item.doctor_type == 1}}" class="detail-chat-txt detail-chat-r-txt">
+                                <image class="detail-h-j-img" src="{{item.doctor_content}}"></image>
+                            </view>
+                            <view wx:if="{{item.doctor_type == 2}}" class="detail-chat-txt detail-chat-r-txt">
+                                <view class="chat-content-list-voice" catch:tap="audioPlay" data-index="{{index}}" data-url="{{item.doctor_content}}">
+                                    <image mode='aspectFit' class="chat-voice-img" style="margin-right:15rpx" src='{{item.doctor_content === audioUrl ? "/images/audioright.gif" : "/images/audioright.png"}}'></image>
+                                    <text class="chat-voice-text">{{item.time}}</text>
+                                </view>
+                            </view>
+                            <view wx:if="{{item.doctor_type == 3}}" class="detail-chat-txt detail-chat-r-txt">
+                                <video class="detail-h-j-img" src="{{item.doctor_content}}"></video>
+                            </view>
+                            <image class="detail-chat-img" style="margin-left: 15rpx" src="{{dataInfo.doctor_avatar}}"></image>
+                        </view>
                     </view>
                 </view>
-            </view>
-            <view class="detail-chat-cell detail-chat-right">
-                <view class="detail-chat-r-info">
-                    <view class="detail-chat-name detail-chat-r-name">旭光红</view>
-                    <view class="detail-chat-txt detail-chat-r-txt">
-                        要不您看您今天哪个时间段方便，咱们视频沟通一下
-                    </view>
-                </view>
-                <image class="detail-chat-img" src="/images/loginBj.png"></image>
             </view>
         </view>
         <!-- -----------操作按钮 ----------- -->
-        <view >
-            <view class="online-btn btn" style="background: #1375D2;" data-url="/pages/index/detail/detail" bind:tap="handleToPage">查看沟通记录</view>
-            <view class="online-btn btn" style="background: #BBDEFF;" data-url="/pages/index/editForm/editForm" bind:tap="handleToPage">返回</view>
+        <view>
+            <view class="online-btn btn" style="background: #1375D2;" data-url="/pages/index/detail/detail" bind:tap="handleToPage">
+                查看沟通记录
+            </view>
+            <view class="online-btn btn" style="background: #BBDEFF;" data-url="/pages/index/editForm/editForm" bind:tap="handleToPage">
+                返回
+            </view>
         </view>
     </view>
 </view>

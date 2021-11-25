@@ -1,0 +1,15 @@
+<view class="finish">
+    <back></back>
+    <view class="history-header">
+        <view class="history-h-tit">青苗云服务中心</view>
+    </view>
+    <view class="finish-content">
+        <image class="finish-c-ya" src="/images/user/ya.png" />
+        <view class="finish-tj-info">{{name}}医生您辛苦了</view>
+        <view class="finish-tj-bl">本次线上复诊已完成，感谢您的辛苦付出！</view>
+        <view class="finish-tj-time">下次复诊时间为 {{time}}</view>
+    </view>
+    <view class="finish-footer">
+        <button class="finish-f-btn" bind:tap="onJumpIndex">返回首页（{{countDownNum}}）</button>
+    </view>
+</view>

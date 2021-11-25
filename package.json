@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@vant/weapp": "^1.5.2",
-    "qqmap-wx-jssdk": "^1.0.0"
+    "qqmap-wx-jssdk": "^1.0.0",
+    "ws": "^8.2.3"
   }
 }

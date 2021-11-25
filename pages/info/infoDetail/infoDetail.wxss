@@ -1,0 +1,31 @@
+/* pages/info/info.wxss */
+.info-cell-wap {
+    padding: 15rpx 30rpx 15rpx 35rpx;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #F2F2F2;
+    flex-wrap: wrap;
+}
+.info-cell-time {
+    font-size: 26rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: #878787;
+    display: block;
+    width: 100%;
+    margin-bottom: 10rpx;
+}
+.info-cell-title {
+    font-size: 30rpx;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    line-height: 42rpx;
+    color: #333;
+}
+.info-cell-flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7rpx;
+}

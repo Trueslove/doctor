@@ -1,0 +1,8 @@
+<view class="info">
+    <view class="info-cell-item">
+        <view class="info-cell-wap" wx:for="{{dataList}}" wx:key="index">
+            <view class="info-cell-time">{{item.add_time}}</view>
+            <view class="info-cell-title">{{item.content}}</view>
+        </view>
+    </view>
+</view>

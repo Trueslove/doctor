@@ -1,25 +1,53 @@
-// pages/index/online/online.js
+import fetch from '../../../utils/seaver'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        type: '', // 线下unline,线上online
+        type: '', // 线下unline,线上2
+        dataInfo: {},
+        userInfo: {},
+        id: ""
     },
-
+    onLoad: function (options) {
+        this.setData({
+            type: options.type,
+            id: options.id
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        this.setData({
-            type: options.type
+    onShow: function () {
+        this.getDataInfo();
+    },
+    getDataInfo() { // 获取详情
+        fetch.post('/employee/case_details', {
+            medicalRecordNo: this.data.id,
+            on_line: this.data.type
+        }).then((res) => {
+            let {
+                user,
+                details
+            } = res;
+            this.setData({
+                dataInfo: details[0],
+                userInfo: user
+            })
+        }).catch((res) => {
+            console.log(res)
         })
+    },
+    handleGoBack() {
+        wx.navigateBack({
+            delta: 1
+        });
     },
     handleToPage(e) {
         let url = e.currentTarget.dataset.url;
         wx.navigateTo({
-            url: url
+            url: `${url}?id=${this.data.dataInfo.medicalRecordNo}`
         })
     },
     /**
@@ -28,14 +56,6 @@ Page({
     onReady: function () {
 
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
     /**
      * 生命周期函数--监听页面隐藏
      */

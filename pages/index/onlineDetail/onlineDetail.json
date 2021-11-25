@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "back": "/components/back/back"
+  },
   "navigationStyle": "custom"
 }

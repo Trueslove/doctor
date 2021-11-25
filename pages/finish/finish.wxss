@@ -1,0 +1,72 @@
+/* pages/finish/finish.wxss */
+.finish {
+    height: 100%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.history-header {
+    height: 128rpx;
+    background: #0087E4;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .history-h-tit {
+    margin: 52rpx 0 0 88rpx;
+    line-height: 52rpx;
+    font-size: 36rpx;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+
+  .finish-content {
+      margin-top: 253rpx;
+      text-align: center;
+        font-size: 32rpx;
+        font-family: Alibaba PuHuiTi;
+  }
+  .finish-tj-info {
+    color: #0D0D0D;
+        line-height: 44rpx;
+        font-weight: bold;
+        margin-top: 76rpx;
+  }
+  .finish-tj-bl {
+    font-size: 24rpx;
+    line-height: 20rpx;
+    color: #EF7C24;
+    margin-top: 73rpx;
+  }
+  .finish-tj-time {
+    font-size: 30rpx;
+    line-height: 20rpx;
+    color: #000000;
+    margin-top: 40rpx;
+  }
+.finish-c-ya {
+    width: 204rpx;
+    height: 204rpx;
+}
+
+
+  .finish-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20rpx 27rpx;
+      background-color: #FFFFFF;
+      box-shadow: 0px -3px 12px rgba(0, 0, 0, 0.05);
+
+  }
+  .finish-f-btn {
+    width: 694rpx;
+    height: 110rpx;
+    line-height: 110rpx;
+    background: #1375D2;
+    border-radius: 14rpx;
+    font-size: 36rpx;
+    color: #FFFFFF;
+  }

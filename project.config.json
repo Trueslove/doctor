@@ -4,7 +4,7 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "es6": true,
         "enhance": false,
         "postcss": true,
@@ -36,12 +36,13 @@
         "packNpmManually": false,
         "packNpmRelationList": [],
         "minifyWXSS": true,
-        "showES6CompileOption": false
+        "showES6CompileOption": false,
+        "minifyWXML": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.14.0",
-    "appid": "wx4ab6eec907ce9c92",
-    "projectname": "%E5%B9%B3%E5%8F%B0%E7%AB%AF",
+    "appid": "wx069837143fd4681b",
+    "projectname": "%E5%8C%BB%E7%94%9F%E7%AB%AF",
     "debugOptions": {
         "hidedInDevtools": []
     },
@@ -58,32 +59,6 @@
         "gamePlugin": {
             "list": []
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "客户信息",
-                    "pathName": "pages/user/customerMap/customerMap",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "商品管理",
-                    "pathName": "pages/commodity/commodity",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "流水详情",
-                    "pathName": "pages/flowingWater/flowDetail/flowDetail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "绑定吗",
-                    "pathName": "pages/creatCode/creatCode",
-                    "scene": null
-                }
-            ]
-        }
+        "miniprogram": {}
     }
 }

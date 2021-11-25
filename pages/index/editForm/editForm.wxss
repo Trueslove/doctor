@@ -1,3 +1,42 @@
+.chat-content-list-voice {
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color: #333;
+  position: relative;
+  /* margin-right: 14rpx; */
+  max-width: 332rpx;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  /* margin-top: 5rpx; */
+  /* margin-bottom: 10rpx; */
+}
+
+.chat-content-list-voice.length1 {
+  /* width: 182rpx; */
+  width: 200rpx;
+}
+
+.chat-content-list-voice.length2 {
+  width: 262rpx;
+}
+
+.chat-content-list-voice.length3 {
+  width: 332rpx;
+}
+.detail-h-j-img {
+  width: 450rpx;
+  object-fit: cover;
+}
+/*声音语音*/
+.chat-voice-img {
+  width: 33rpx;
+  height: 30rpx;
+  float: right;
+}
+.chat-voice-text {
+  font-size: 26rpx;
+}
 .edit-form {
     background-color: #f2f2f2;
 }
@@ -207,6 +246,7 @@
         justify-content: space-between;
         align-items: center;
     }
+    
     .detail-chat-img {
       width: 76rpx;
       height: 76rpx;
@@ -219,10 +259,10 @@
     }
 .detail-txt-flex-c {
     align-items: center;
-    width: 132rpx;
-    height: 62rpx;
+    width: 100%;
+    height: 70rpx;
     background: #006AEF;
-    border-radius: 31px 0px 0px 31px;
+    border-radius: 35rpx;
     justify-content: center;
     font-size: 30rpx;
     font-family: Alibaba PuHuiTi;
@@ -254,10 +294,10 @@
         margin-right: 14rpx;
     }
     .edit-form-info-img {
-        width: 402rpx;
-        height: 268rpx;
+        width: 100%;
         background: rgba(0, 0, 0, 0);
         margin-top: 12rpx;
+        object-fit: cover;
     }
     .edit-form-content {
         font-size: 30rpx;
@@ -278,7 +318,10 @@
         padding-bottom: 0;
     }
 
-
+.detail-docker-right {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .edit-form-cell-wap {
     font-size: 28rpx;

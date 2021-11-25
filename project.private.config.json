@@ -31,12 +31,6 @@
                     "scene": null
                 },
                 {
-                    "name": "任务",
-                    "pathName": "pages/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
                     "name": "详情",
                     "pathName": "pages/index/detail/detail",
                     "query": "",
@@ -69,6 +63,30 @@
                 {
                     "name": "线上详情",
                     "pathName": "pages/index/onlineDetail/onlineDetail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "任务",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "线下详情",
+                    "pathName": "pages/index/online/online",
+                    "query": "type=unline",
+                    "scene": null
+                },
+                {
+                    "name": "聊天",
+                    "pathName": "pages/chat/chat",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "完成",
+                    "pathName": "pages/finish/finish",
                     "query": "",
                     "scene": null
                 }

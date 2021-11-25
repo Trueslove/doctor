@@ -1,0 +1,28 @@
+/* components/back/back.wxss */
+.back-wap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100000;
+    height: 140rpx;
+    overflow: hidden;
+}
+
+.back-icon-bj {
+    width: 100%;
+    height: 375rpx;
+    z-index: 0;
+}
+
+.back-icon {
+    position: absolute;
+    transform: rotate(180deg);
+    z-index: 10;
+    text-align: left;
+}
+
+.back-icon-img {
+    width: 17rpx;
+    height: 30rpx;
+    padding: 15rpx 30rpx;
+}

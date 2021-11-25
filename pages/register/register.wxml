@@ -6,24 +6,25 @@
     <view class="login-content">
         <view class="login-info-wap">
             <view class="register-user-wap">
-                <image class="register-h-user" src="/images/register/user.png"></image>
+                <image class="register-h-user" wx:if="{{!head_img}}" src="/images/register/user.png" bindtap='changeAvatar'></image>
+                <image class="register-h-user" wx:if="{{head_img}}" src="{{head_img}}" bindtap='changeAvatar'></image>
                 <view class="register-user-text">点击上传头像</view>
             </view>
             <view class="register-user-cell" style="margin-top:0;">
                 <view class="register-user-label">姓名</view>
-                <input class="login-input"/>
+                <input class="login-input" bindinput="handleChangeInput" data-key="real_name" value="{{real_name}}"/>
             </view>
             <view class="register-user-cell">
                 <view class="register-user-label">性别</view>
                 <view class="register-user-check">
                     <view class="register-user-sex">
-                        <image class="register-h-check" bindtap="handleCheck" data-type="nan" data-key="sex" wx:if="{{sex === 'nan'}}" src="/images/register/check.png"></image>
-                        <image class="register-h-check" bindtap="handleCheck" data-type="nan" data-key="sex" wx:else src="/images/register/noCheck.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="1" data-key="sex" wx:if="{{sex === '1'}}" src="/images/register/check.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="1" data-key="sex" wx:else src="/images/register/noCheck.png"></image>
                         <view>男</view>
                     </view>
                     <view class="register-user-sex">
-                        <image class="register-h-check" bindtap="handleCheck" data-type="nv" data-key="sex" wx:if="{{sex === 'nv'}}" src="/images/register/check.png"></image>
-                        <image class="register-h-check" bindtap="handleCheck" data-type="nv" data-key="sex" wx:else src="/images/register/noCheck.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="2" data-key="sex" wx:if="{{sex === '2'}}" src="/images/register/check.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="2" data-key="sex" wx:else src="/images/register/noCheck.png"></image>
                         <view>女</view>
                     </view>
                 </view>
@@ -31,24 +32,24 @@
             <view class="register-user-cell register-user-cell-zc">
                 <view class="register-user-label">职称</view>
                 <view class="register-user-check register-user-zc">
-                    <view class="register-user-check-zc">
-                        <image class="register-h-check" bindtap="handleCheck" data-type="mz" data-key="title" wx:if="{{title === 'mz'}}" src="/images/register/check.png"></image>
-                        <image class="register-h-check" bindtap="handleCheck" data-type="mz" data-key="title" wx:else src="/images/register/noCheck.png"></image>
+                    <view class="register-user-check-zc" wx:if="{{type == 1}}">
+                        <image class="register-h-check" bindtap="handleCheck" data-type="1" data-key="job_status" wx:if="{{job_status === '1'}}" src="/images/register/check.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="1" data-key="job_status" wx:else src="/images/register/noCheck.png"></image>
                         <view>门诊主任</view>
                     </view>
-                    <view class="register-user-check-zc">
-                        <image class="register-h-check" bindtap="handleCheck" data-type="ys" data-key="title" wx:if="{{title === 'ys'}}" src="/images/register/check.png"></image>
-                        <image class="register-h-check" bindtap="handleCheck" data-type="ys" data-key="title" wx:else src="/images/register/noCheck.png"></image>
+                    <view class="register-user-check-zc" wx:if="{{type == 1}}">
+                        <image class="register-h-check" bindtap="handleCheck" data-type="2" data-key="job_status" wx:if="{{job_status === '2'}}" src="/images/register/check.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="2" data-key="job_status" wx:else src="/images/register/noCheck.png"></image>
                         <view>执业医师</view>
                     </view>
                     <view class="register-user-check-zc">
-                        <image class="register-h-check" bindtap="handleCheck" data-type="kq" data-key="title" wx:if="{{title === 'kq'}}" src="/images/register/check.png"></image>
-                        <image class="register-h-check" bindtap="handleCheck" data-type="kq" data-key="title" wx:else src="/images/register/noCheck.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="3" data-key="job_status" wx:if="{{job_status === '3'}}" src="/images/register/check.png"></image>
+                        <image class="register-h-check" bindtap="handleCheck" data-type="3" data-key="job_status" wx:else src="/images/register/noCheck.png"></image>
                         <view>口腔管家</view>
                     </view>
                 </view>
             </view>
-            <button class="btn login-login-btn">完成</button>
+            <button class="btn login-login-btn" bindtap="handleSubmit">完成</button>
             <view class="login-text">需要二次确认，已经录入不可更改。如想更改，需联系管理员</view>
         </view>
     </view>

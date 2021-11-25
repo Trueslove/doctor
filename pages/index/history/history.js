@@ -1,40 +1,51 @@
-// pages/index/history/history.js
+import fetch from '../../../utils/seaver'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        dataList: [],
+        userInfo: {},
+        patientId: ''
     },
     handleToPage(e) {
         let url = e.currentTarget.dataset.url;
         let type = e.currentTarget.dataset.type;
+        let id = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: `${url}?type=${type}`
+            url: `${url}?type=${type}&id=${id}`
         })
+    },
+    onLoad: function(options) {
+        this.setData({
+            patientId: options.patientId
+         })
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+     onShow: function () {
+        this.getDataInfo();
     },
-
+    getDataInfo() { // 获取用户信息
+        fetch.post('/employee/old_case', {
+            patientId: this.data.patientId
+        }).then((res) => {
+            this.setData({
+                dataList: res.details,
+                userInfo: res.user
+            })
+        }).catch((res) => {
+            console.log(res)
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
 
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
     /**
      * 生命周期函数--监听页面隐藏
      */

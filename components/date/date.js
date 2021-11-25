@@ -50,6 +50,9 @@ const leftPad0 = function(v, n) {
       value: String,
       dateValue: {
         type: Date
+      },
+      rangeKey: {
+        type: Array
       }
     },
   

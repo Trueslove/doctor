@@ -1,39 +1,48 @@
-// pages/user/user.js
+import fetch from '../../utils/seaver'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    activeIdx: 2 // 底部导航当前选中状态
+    e_user: {},
+    user: {},
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+   onShow: function (options) {
+    this.getUserInfo();
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getUserInfo() { // 获取用户信息
+    fetch.get('/userInfo').then((res) => {
+      let {
+        e_user,
+        user
+      } = res;
+      this.setData({
+        e_user,
+        user
+      })
+    }).catch((res) => {
+      console.log(res)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  handleOutLogin() { // 退出登陆
+    fetch.get('/logout').then((res) => {
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+    }).catch((res) => {
+      console.log(res)
+    })
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面卸载
    */

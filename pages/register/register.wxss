@@ -5,6 +5,8 @@
 .register-h-user {
     width: 99rpx;
     height: 99rpx;
+    border-radius: 50%;
+    object-fit: cover;
 }
 .register-user-text {
     font-size: 24rpx;

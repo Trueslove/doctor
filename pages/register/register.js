@@ -1,60 +1,82 @@
 // pages/register/register.js
+import {
+    uploadOne
+} from "../../utils/upload"
+import fetch from '../../utils/seaver'
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-        sex: 'nan', // 性别
-        title: 'mz', // 职称
+        real_name: "", // 真实姓名
+        sex: '1', // 性别
+        job_status: "1", // 职位
+        head_img: "", // 头像
+        type: ''
     },
-
+    handleChangeInput(e) { // 输入框发生变化
+        let key = e.currentTarget.dataset.key;
+        let value = e.detail.value;
+        this.setData({
+            [key]: value
+        })
+    },
+    // 切换头像
+    changeAvatar() {
+        let that = this;
+        wx.chooseImage({
+            count: 1, // 最多可以选择的图片张数，默认9
+            sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
+            success: function (res) {
+                let avatar = res.tempFilePaths;
+                uploadOne(avatar, data => {
+                    that.setData({
+                        head_img: data
+                    })
+                })
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
+                // complete
+            }
+        })
+    },
+    handleSubmit() {
+        let {
+            real_name,
+            sex,
+            job_status,
+            head_img
+        } = this.data;
+        fetch.post('/user/edit', {
+            real_name,
+            sex,
+            job_status,
+            head_img
+        }).then((res) => {
+            wx.showToast({
+                icon: 'success',
+                duration: 1000,
+            });
+            wx.switchTab({
+                url: '/pages/index/index'
+            })
+        }).catch((res) => {
+            console.log(res)
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
+        let {
+            type
+        } = JSON.parse(wx.getStorageSync('userInfo'));
+        this.setData({
+            type: type
+        })
     },
     handleCheck(e) {
         let type = e.currentTarget.dataset.type;
